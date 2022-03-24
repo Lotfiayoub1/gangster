@@ -148,7 +148,7 @@ TEST_CASE("Famille1A") {
   for(int i =0; i<13; ++i) 
     if (i%4) {
       hommes[i]->setPersonne(Personne(tableau[i]));
-      std::cout << hommes[i]->getPersonne().getNom() << std::endl;
+      // std::cout << hommes[i]->getPersonne().getNom() << std::endl;
   }
 
   // famille.listePersonnes(std::cout);
@@ -161,7 +161,7 @@ TEST_CASE("Famille1A") {
   
 } 
 
-/*
+
 TEST_CASE("Famille1B") {
   Famille famille;
   std::stringstream ss;
@@ -185,9 +185,9 @@ TEST_CASE("Famille1B") {
   
   CHECK(attendu.str() == ss.str()); 
 
-} */
+}
 
-/*
+
 TEST_CASE("Foncteur") {
   Gangster g1;
   Gangster g2;
@@ -198,9 +198,9 @@ TEST_CASE("Foncteur") {
   FoncteurInf foncteur;
   CHECK(foncteur(&g2, &g1));
   CHECK(foncteur(&g1, &c ));
-} */
+}
 
-/*
+
 TEST_CASE("Famille2") {
   Famille famille;
   std::stringstream ss;
@@ -225,6 +225,6 @@ TEST_CASE("Famille2") {
     attendu << " " << hommes[i]->getId();
   
   CHECK(attendu.str() == ss.str());
-} */
+}
 
 // ET VALGRIND ????

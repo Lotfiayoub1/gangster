@@ -82,9 +82,11 @@ public:
     Famille(/* args */);
     void ajouter(Gangster * gang);
     void listePersonnes(ostream & o = cout);
+    void listeMembres(ostream & o = cout);
+    friend ostream & operator<<( ostream & o, Famille famille);
     ~Famille();
 };
-
+ostream & operator<<(ostream & o, Famille famille);
 
 //CLASS COMPARATOR
 class Comparator
@@ -96,6 +98,29 @@ public:
     bool operator() (const Gangster* perso1, const Gangster* perso2) const;
 
 };
+
+// class Foncteur
+class FoncteurInf
+{
+private:
+    /* data */
+public:
+    FoncteurInf(/* args */);
+    bool operator()(const Gangster* g1, const Gangster * g2) const;
+};
+
+
+
+// Class FoncteurSup
+class FoncteurSup
+{
+private:
+    /* data */
+public:
+    FoncteurSup(/* args */);
+    bool operator() (const Gangster * g1, const Gangster * g2) const;
+};
+
 
 
 

@@ -118,6 +118,21 @@ bool Comparator::operator() (const Gangster* perso1, const Gangster* perso2) con
     // return *perso1 < *perso2;
 }
 
+FoncteurInf::FoncteurInf(/* args */)
+{
+}
+bool FoncteurInf::operator()(const Gangster* g1, const Gangster * g2) const{
+    return *g1 < *g2;
+}
+
+
+FoncteurSup::FoncteurSup(/* args */)
+{
+}
+bool FoncteurSup::operator() (const Gangster * gg1, const Gangster * gg2) const{
+    return *gg2 < *gg1;
+}
+
 //CLASS FAMILLE
 
 Famille::Famille(/* args */)
@@ -127,7 +142,16 @@ void Famille::ajouter(Gangster* gang){
     
     familles.push_back(gang);
 }
-
+void Famille::listeMembres(ostream & o ){
+    string resultat {};
+    sort(familles.begin(),familles.end(),FoncteurSup());
+   
+    std::for_each(familles.begin(), familles.end(), [&](const auto& item) {
+        o << resultat << item->getId();
+        resultat = " ";
+    });
+    
+}
 
 
 void Famille::listePersonnes(ostream & o){
@@ -169,7 +193,12 @@ void Famille::listePersonnes(ostream & o){
     
 
 }
+ostream & operator<<(ostream & o, Famille famille){
+    famille.listePersonnes(o);
+    return o;
+}
 Famille::~Famille()
 {
 }
+
 
